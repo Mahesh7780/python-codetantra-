@@ -1,0 +1,841 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PYTHON</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3579cb59-315e-8007-aea1-f42d500b00fb" class="page sans"><header><h1 class="page-title" dir="auto">PYTHON</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="35d9cb59-315e-809e-8c48-cbf5ad9b7a8e" class="">Day 01: Variables, Data Types, Working of Built-in Functions and Their Internal Working, Lists, Tuples, Strings, Frozen Sets, Dictionaries, Bytes, and Byte Arrays.<br/>Day 02: operators, (bitwise operators, bit manipulation)<br/>Day 03: conditional control statements.<br/>Day 04: looping control statements.<br/>Day 05,06: math problems<br/>Day 07,08 : patterns<br/>Day 09 : functions<br/>Day 10 : lambda functions<br/>Day 11 : recursion<br/>Day 12,13,14 : OOPS<br/>Day 15: exception handling.<br/>Day 16: iterators, generators, decorators<br/>Day 17: modules, and file handling.<br/>Day 18: copy operators.<br/>Day 19,20: practice.</p></div><div style="display:contents" dir="auto"><h3 id="35d9cb59-315e-80c2-9876-d87f51517ce7" class="">                                                                   <strong>Day 01</strong></h3></div><div style="display:contents" dir="auto"><h1 id="35d9cb59-315e-804e-a17b-e736e739863e" class=""><br/><strong>Variables :-</strong></h1></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8041-99a2-de9119cbd0be" class=""><br/>A variable is essentially a name that is assigned to a value.Variables are used to store information and  manipulated during program execution.</p></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-809d-966e-e3e6735d436d" class="bulleted-list"><li style="list-style-type:disc">Unlike other languages, Python variables do not require explicit declaration of type.</li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8062-9749-e22039de3291" class="bulleted-list"><li style="list-style-type:disc">The variable type is automatically decided based on the value given to it.</li></ul></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80e5-bc89-f0e8950274e8" class=""><strong>Example :</strong></p></div><div style="display:contents" dir="auto"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><pre id="35d9cb59-315e-8085-8cf4-e68597e51bd2" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 5
+name = &quot;Alex&quot;  
+print(x) #5
+print(name) #Alex</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80b7-9af2-f1d9305f8bfd" class=""><strong>Rules for Naming Variables ( Naming convention ) :-</strong></p></div><div style="display:contents" dir="auto"><ol type="1" id="35d9cb59-315e-8026-813d-f19aacb2e0d4" class="numbered-list" start="1"><li>Variable names can only contain letters, digits and underscores (_).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35d9cb59-315e-80a0-af0d-e57ff32e267e" class="numbered-list" start="2"><li>A variable name cannot start with a digit.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35d9cb59-315e-8018-93b1-c7c36236e032" class="numbered-list" start="3"><li>Variable names are case-sensitive like myVar and myvar are different.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="35d9cb59-315e-80d5-9bee-fb317f4caf6b" class="numbered-list" start="4"><li>Avoid using Keywords like if, else, for as variable names.</li></ol></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-8084-8857-e605b97f3785" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all"># Valid ✔
+age = 21
+_colour = &quot;lilac&quot;
+total_score = 90
+
+#Invalid ❌
+1name = &quot;Error&quot;  # Starts with a digit
+class = 10       # &#x27;class&#x27; is a reserved keyword
+user-name = &quot;Doe&quot;  # Contains a hyphen
+</code></pre></div><div style="display:contents" dir="auto"><h1 id="35d9cb59-315e-80e1-a788-ee8762e13b31" class=""><strong>Assigning Values to Variables</strong></h1></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8082-a207-d3d97aa37f5f" class=""><strong>Basic Assignment: </strong>Variables are assigned values using the = <strong>operator.</strong></p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-808f-bc7a-f21102b8c808" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 5
+y = 3.14
+z = &quot;Hi&quot;</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8035-9911-c0764ad2db2e" class=""><strong>Dynamic Typing:</strong> variables are dynamically typed, meaning the same variable can hold different types of values during execution.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-804b-9be7-de3c82084728" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 10
+x = &quot;Now a string&quot;</code></pre></div><div style="display:contents" dir="auto"><h1 id="35d9cb59-315e-8097-b864-daeba82e5c70" class=""><strong>Multiple Assignments</strong></h1></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80f2-b30e-d5644ebd8b30" class=""><strong>Assigning Same Value:</strong> allows assigning the same value to multiple variables in a single line, which can be useful for initializing variables with the same value.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80d5-80ae-de8e9c89fc12" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">a = b = c = 100
+print(a, b, c)  #100 100 100</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8019-a4e6-d6caaee6c75d" class=""><strong>Assigning Different Values:</strong> we can assign different values to multiple variables simultaneously, making the code concise and easier to read.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-8027-99d3-d33cd687153e" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x, y, z = 1, 2.5, &quot;Python&quot;
+print(x, y, z) #1 2.5 Python</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80e9-9699-da9389d62d1b" class=""><strong> Variable Reassignment :</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-808e-88a2-d71d7149be48" class="">we check whether modifying one variable affects another when both initially reference the same object.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-807e-a32f-f1a5840eb228" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 1
+y = x
+y = y + 1
+
+print(x) #1
+print(y) #2</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-809b-b26e-ff85e9a89db8" class=""><strong>Type and Casting a Variable :</strong><br/>• <strong>Type casting</strong> means converting the value of one data type into another. Python provides several built-in functions to facilitate casting, including int(), float() and str() among others.</p></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8004-96df-e816ed9b5518" class="bulleted-list"><li style="list-style-type:disc">Type of a variable can be determine using <strong>type().</strong> function which returns the type of the object passed to it.</li></ul></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80c6-a3f7-cf7ec5360533" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 10          # int
+y = 3.5         # float
+name = &quot;John&quot;   # string
+is_ok = True    # boolean
+
+print(type(x)) #&lt;class &#x27;int&#x27;&gt;
+print(type(y)) #&lt;class &#x27;float&#x27;&gt;
+print(type(name)) #&lt;class &#x27;str&#x27;&gt;
+print(type(is_ok)) #&lt;class &#x27;bool&#x27;&gt;</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8047-9695-f3e109ff246b" class=""><strong>Integer to Float </strong></p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80f7-84ed-e2e54d3971de" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">a = 5
+b = float(a)
+
+print(b) #5.0
+print(type(b)) #&lt;class &#x27;float&#x27;&gt;</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-808c-9788-d4e28b6a4204" class=""><strong>Common Casting Functions</strong></p></div><div style="display:contents" dir="ltr"><table id="35d9cb59-315e-8089-9305-e6688ad30d6c" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="35d9cb59-315e-80e0-8409-fcfb103ce88e"><th id="=SGu" class="simple-table-header-color simple-table-header" style="width:288px">Function</th><th id="CSPY" class="simple-table-header-color simple-table-header" style="width:412px">Converts To</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="35d9cb59-315e-80ff-91c9-cf4cc153e8db"><td id="=SGu" class="" style="width:288px"><code>int()</code></td><td id="CSPY" class="" style="width:412px">Integer</td></tr></div><div style="display:contents" dir="ltr"><tr id="35d9cb59-315e-80a1-a816-cf59b77b5786"><td id="=SGu" class="" style="width:288px"><code>float()</code></td><td id="CSPY" class="" style="width:412px">Float</td></tr></div><div style="display:contents" dir="ltr"><tr id="35d9cb59-315e-8000-a862-c1a5776c586c"><td id="=SGu" class="" style="width:288px"><code>str()</code></td><td id="CSPY" class="" style="width:412px">String</td></tr></div><div style="display:contents" dir="ltr"><tr id="35d9cb59-315e-806d-baad-dd86ec9156b5"><td id="=SGu" class="" style="width:288px"><code>bool()</code></td><td id="CSPY" class="" style="width:412px">Boolean</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><h3 id="35d9cb59-315e-8073-98cd-d77d8207e2d9" class=""><strong>Deleting a Variable</strong></h3></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80eb-a308-cf645cea0b7a" class="">We can remove a variable from the namespace using the <strong><a href="https://www.geeksforgeeks.org/python/python-del-to-delete-objects/">del</a></strong> keyword. This deletes the variable and frees up the memory it was using</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-807b-bd63-f09aabb9fde0" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">x = 10
+del x
+print(x)  #ERROR!</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-809c-9325-fb9037b3f706" class=""><strong>Practical Examples :</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80c7-a083-d994747f7a46" class="">1. <strong>Swapping Two Variables:</strong> Using multiple assignments, we can swap the values of two variables without needing a temporary variable.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80b2-80dc-c6c87f03c627" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">a, b = 5, 10
+a, b = b, a
+print(a, b) #10 5</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8064-993d-da9a12db3a56" class="">2. <strong>Counting Characters in a String: </strong>Assign the results of multiple operations on a string to variables in one line.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-8057-bfbc-f9b96ebca1b9" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">word = &quot;Python&quot;
+length = len(word)
+print(&quot;Length of the word:&quot;, length) #Length of the word: 6</code></pre></div><div style="display:contents" dir="auto"><h3 id="35d9cb59-315e-8034-98c9-ff12a2eecba6" class=""><strong>Python Data Types</strong></h3></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-805e-b510-e789f2d7ab32" class="">Data types in Python are a way to classify data items. They represent the kind of value which determines what operations can be performed on that data. Since everything is an object in Python programming, Python<strong> data types are classes and variables are instances </strong>(objects) of these classes.</p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8075-b949-e1b0e1df59f9" class=""><strong>built-in data types in Python :</strong></p></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-808a-856a-e5f6f98cf7a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Numeric: int</strong>, <strong>float</strong>, <strong>complex</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80b5-a19d-c47497545622" class="bulleted-list"><li style="list-style-type:disc"><strong>Sequence Type: string</strong>, <strong>list</strong>, <strong>tuple</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-802f-84b2-c378dd750357" class="bulleted-list"><li style="list-style-type:disc"><strong>Mapping Type: dict</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8067-b884-e1690d50cdaa" class="bulleted-list"><li style="list-style-type:disc"><strong>Boolean: bool</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80f2-8727-f1b6576cc193" class="bulleted-list"><li style="list-style-type:disc"><strong>Set Type: set</strong>, <strong>frozenset</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80cf-95bd-d683340e0576" class="bulleted-list"><li style="list-style-type:disc"><strong>Binary Types: bytes</strong>, <strong>bytearray</strong>, <strong>memoryview</strong></li></ul></div><div style="display:contents" dir="auto"><h3 id="35d9cb59-315e-8048-8027-f6bee63a2879" class=""><strong>Data Types</strong></h3></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80dc-a9dd-eaa8bc5a4337" class="">Data types specify the type of data a variable can store. Python has several built-in data types:</p></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80d1-8810-ec09daaf3c89" class="bulleted-list"><li style="list-style-type:disc"><strong>Numeric</strong>: <code>int</code>, <code>float</code>, <code>complex</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-804f-9514-fb5af8bf8d83" class="bulleted-list"><li style="list-style-type:disc"><strong>Boolean</strong>: <code>bool</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8087-bfe5-d43ecedef75a" class="bulleted-list"><li style="list-style-type:disc"><strong>Sequence</strong>: <code>list</code>, <code>tuple</code>, <code>range</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80af-a54e-db8c1ecddddf" class="bulleted-list"><li style="list-style-type:disc"><strong>String</strong>: <code>str</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8016-a570-f552f1573fed" class="bulleted-list"><li style="list-style-type:disc"><strong>Set</strong>: <code>set</code>, <code>frozenset</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8064-975a-caafa99230bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Mapping</strong>: <code>dict</code></li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8084-ae93-da527850ae35" class="bulleted-list"><li style="list-style-type:disc"><strong>Binary</strong>: <code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></li></ul></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-8090-b65a-f119cb74423f" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">`# Numeric Types
+num_int = 10
+num_float = 10.5
+num_complex = 3 + 4j
+
+# Boolean
+is_valid = True
+
+print(type(num_int), type(num_float), type(num_complex), type(is_valid))`
+
+`&lt;class &#x27;int&#x27;&gt; &lt;class &#x27;float&#x27;&gt; &lt;class &#x27;complex&#x27;&gt; &lt;class &#x27;bool&#x27;&gt;`</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-800f-9b05-e6d28f9c3493" class=""><strong>Working of Built-in Functions and Their Internal Working</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-802d-be0c-ceddf7025d35" class="">Built-in functions like <code>type()</code>, <code>id()</code>, <code>print()</code>, and <code>len()</code> are implemented in C (in CPython) for performance.</p></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8001-b337-df2330967379" class="bulleted-list"><li style="list-style-type:disc"><code><strong>type(obj)</strong></code>: Returns the class of the object. Internally, it accesses the <code>ob_type</code> pointer in the C structure of the object.</li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-80dd-8802-fed90baad36f" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id(obj)</strong></code>: Returns the unique identifier of an object, which in CPython is the memory address of the object.</li></ul></div><div style="display:contents" dir="auto"><ul id="35d9cb59-315e-8051-930e-e4cf945fd7c7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>len(obj)</strong></code>: Calls the <code>__len__()</code> dunder method of the object. For built-in types like lists and strings, it directly reads the size field from the C struct, which is an O(1) operation.</li></ul></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80a3-93ba-ea609d4bfd94" class=""><strong>Memory Management and Interning:</strong> Python uses reference counting and a garbage collector. For performance, Python caches small integers (from -5 to 256) and interns certain strings (like identifiers). This means multiple variables assigned the value <code>10</code> will point to the exact same memory address.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-8024-81f3-d7248cebb0ef" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">`a = 10
+b = 10
+print(&#x27;id(a):&#x27;, id(a))
+print(&#x27;id(b):&#x27;, id(b))
+print(&#x27;Are a and b the same object?&#x27;, a is b)
+
+c = 257
+d = 257
+print(&#x27;Are c and d the same object? (Depends on environment, usually False in REPL)&#x27;, c is d)`</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80c3-a751-ef252094caed" class=""><strong>Lists</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8081-b66d-d569939bffc9" class="">A list is an ordered, mutable collection of items. It can contain elements of different data types. Internally, lists are dynamic arrays. When a list grows beyond its current allocated capacity, Python over-allocates memory to allow for O(1) amortized appends.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80ef-b623-f494fee705e6" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">my_list = [1, &#x27;Python&#x27;, 3.14, True]
+print(my_list)
+
+# Modifying a list
+my_list[0] = 100
+my_list.append(&#x27;New Item&#x27;)
+print(my_list)</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8016-9013-e4bba0c13218" class=""><strong>Tuples</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80cd-a4c4-fdf8d64816f2" class="">A tuple is an ordered, immutable collection. Once created, its elements cannot be modified. They are more memory efficient than lists and can be used as dictionary keys if all their elements are immutable.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80ed-b139-f956907804e6" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">my_tuple = (1, 2, 3, &#x27;Python&#x27;)
+print(my_tuple)
+
+# Accessing elements
+print(my_tuple[1])
+
+# my_tuple[0] = 10 # This would raise a TypeError</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-808d-894e-c255dd7d510d" class=""><strong>Strings</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-808c-90d1-e50ed84e86e7" class="">A string is a sequence of characters. In Python 3, all strings are Unicode. Strings are immutable, meaning any operation that modifies a string actually creates a new string object.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80e0-b6f7-d7e964ca4159" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">my_string = &#x27;Hello, Python!&#x27;
+print(my_string)
+print(&#x27;Length:&#x27;, len(my_string))
+print(&#x27;Uppercase:&#x27;, my_string.upper())</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8025-a2b7-cdf104a56c69" class=""><strong>Frozen Sets</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80e9-90c8-d881f95dc527" class="">A <code>frozenset</code> is an immutable version of a <code>set</code>. A <code>set</code> is an unordered collection of unique elements. Because a <code>frozenset</code> is immutable, it is hashable and can be used as a dictionary key or an element of another set.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80bb-bc8a-c6aa31049fa1" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">normal_set = {1, 2, 3, 3}
+frozen = frozenset([1, 2, 3, 4, 4])
+
+print(&#x27;Set:&#x27;, normal_set)
+print(&#x27;Frozenset:&#x27;, frozen)
+
+# normal_set.add(5) # Valid
+# frozen.add(5) # AttributeError: &#x27;frozenset&#x27; object has no attribute &#x27;add&#x27;</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80c7-921a-ef3d013752fa" class=""><strong>Dictionaries</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-8032-a647-d2b00655fac0" class="">A dictionary is an unordered (ordered by insertion in Python 3.7+), mutable collection of key-value pairs. Keys must be immutable and hashable (like strings, numbers, or tuples). Internally, dictionaries are implemented as highly optimized hash tables.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-805b-b30a-df3564f5b71f" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">my_dict = {&#x27;name&#x27;: &#x27;John&#x27;, &#x27;age&#x27;: 25, &#x27;language&#x27;: &#x27;Python&#x27;}
+print(my_dict)
+
+# Accessing and adding elements
+print(&#x27;Name:&#x27;, my_dict[&#x27;name&#x27;])
+my_dict[&#x27;city&#x27;] = &#x27;New York&#x27;
+print(my_dict)</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80a7-9074-cf9097dccb14" class=""><strong>Bytes</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80e0-89cc-ccd7adf5e725" class="">The <code>bytes</code> type represents an immutable sequence of bytes (integers in the range 0 &lt;= x &lt; 256). It is useful for binary data like images, network packets, etc.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80a0-9f68-e0d4c7cc7c00" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">`b_data = b&#x27;Hello&#x27;
+print(b_data)
+print(&#x27;First byte:&#x27;, b_data[0]) # Returns ASCII value of &#x27;H&#x27;
+
+# b_data[0] = 65 # TypeError: &#x27;bytes&#x27; object does not support item assignment`
+
+`b&#x27;Hello&#x27;
+First byte: 72`</code></pre></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80db-bea3-d8644ae7485e" class=""><strong>Byte Arrays</strong></p></div><div style="display:contents" dir="auto"><p id="35d9cb59-315e-80cd-9c2b-d7dc25ffc3ab" class="">The <code>bytearray</code> type is a mutable counterpart to <code>bytes</code>. It allows modification of the bytes in-place.</p></div><div style="display:contents" dir="auto"><pre id="35d9cb59-315e-80d5-97b4-d6d5aa52c957" class="code code-wrap"><code class="language-python" style="white-space:pre-wrap;word-break:break-all">ba_data = bytearray(b&#x27;Hello&#x27;)
+print(ba_data)
+
+# Modifying a bytearray
+ba_data[0] = 74 # ASCII for &#x27;J&#x27;
+print(ba_data) # Output: bytearray(b&#x27;Jello&#x27;)</code></pre></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
